@@ -2,14 +2,14 @@
 
 Here is the cowin vaccine tracker, Get notified whereever the covid vaccnine stock arrives in your area.
 
-##Running this script: 
+## Running this script: 
 
-1. Create a python virtual environment:
-    python -m venv /path/to/new/virtual/environment
-    source <venv>/bin/activate
-2. Install requirements.txt:
+1. Create a python virtual environment: <br />
+    python -m venv /path/to/new/virtual/environment <br />
+    source <venv>/bin/activate <br />
+2. Install requirements.txt: <br />
     pip install -r requirements.txt
-3. Run Python script:
+3. Run Python script: <br />
     python cowin.py
   
   

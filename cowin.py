@@ -1,6 +1,6 @@
 from cowin_api import CoWinAPI
 import time
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from playsound import playsound
 import json
 import os
@@ -14,7 +14,7 @@ def notify():
 i =1
 while(True):
 
-    print("Number of time searched: " + str(i))
+    print("\nNumber of time searched: " + str(i))
     print("--------------------------\n")
 
     tom = date.today() + timedelta(1)
@@ -22,23 +22,26 @@ while(True):
     cowin = CoWinAPI()
 
     district_id = '503'
-    date = tom.strftime("%d-%m-%Y")
+    q_date = tom.strftime("%d-%m-%Y")
     print("Searched on: ")
-    print(date)
+    print(datetime.now())
 
     min_age_limit = 18
     
-    total_centers = cowin.get_availability_by_district(district_id,date, min_age_limit)
+    total_centers = cowin.get_availability_by_district(district_id,q_date, min_age_limit)
 
     for center in total_centers["centers"]:
         if(int(center["pincode"]/1000) == 324):
             sessions = center["sessions"]
             for session in sessions:
-                if(session["available_capacity"] == 0):
+                if(session["available_capacity"] != 0):
                     print("Vaccine available at :"+ center["name"])
                     print("\n")
                     notify()
+                else:
+                    print(".")    
 
-    time.sleep(5)
+    # Search again in 5 mins
+    time.sleep(3000)
     i = i+1
 

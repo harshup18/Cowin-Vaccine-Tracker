@@ -29,6 +29,10 @@ while(True):
     min_age_limit = 18
     
     total_centers = cowin.get_availability_by_district(district_id,q_date, min_age_limit)
+    
+
+    if len(total_centers["centers"]) == 0:
+        print("No centers available for:"+ str(q_date))
 
     for center in total_centers["centers"]:
         if(int(center["pincode"]/1000) == 324):
@@ -42,6 +46,6 @@ while(True):
                     print(".")    
 
     # Search again in 5 mins
-    time.sleep(3000)
+    time.sleep(300)
     i = i+1
 

@@ -1,6 +1,6 @@
 # Cowin-Vaccine-Tracker
 
-Here is the cowin vaccine tracker, Get notified whereever the covid vaccnine stock arrives in your area.
+Here is the cowin vaccine tracker, Get notified whenever the covid vaccnine stock arrives in your area.
 
 ## Running this script: 
 
